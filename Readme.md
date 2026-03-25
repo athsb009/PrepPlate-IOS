@@ -1,47 +1,93 @@
-//
-//  Readme.md
-//  PrepPlateIOS
-//
-//  Created by Atharva Bibave on 11/30/25.
-//
+# PrepPlate 🥗
+### A native iOS app for recipe discovery, meal planning, and smart shopping lists
 
-PrepPlate 🥗
-Student Name: Atharva Bibave
+---
 
-📱 App Overview
-PrepPlate is a native iOS application designed to streamline the cooking experience. It allows users to discover new recipes via a live API, manage a personal cookbook, plan daily meals, and automatically generate shopping lists.
+## Overview
 
-✨ Key Features
-Recipe Discovery: Live search and "Trending" recipes powered by the Spoonacular API.
+PrepPlate streamlines the cooking experience for students and home cooks. Discover trending recipes, build a personal cookbook, plan your meals for the week, and generate shopping lists automatically — all in one polished native iOS app.
 
-Smart Cookbook: Save and organize favorite recipes locally using SwiftData.
+---
 
-Meal Planner: Schedule multiple meals (Breakfast, Lunch, Dinner) for any specific date on a calendar.
+## Features
 
-Shopping List: Add ingredients directly from a recipe detail view; fully interactive (check off/delete items).
+**Recipe Discovery**
+- Live search powered by the Spoonacular API
+- Browse trending recipes updated in real time
+- Recently Viewed history for quick access
 
-Polished UI: Includes custom animations, modal search sheets, and "Recently Viewed" history.
+**Smart Cookbook**
+- Save and organize favorite recipes locally
+- Persistent offline storage — your cookbook is always available
+- Clean, browsable collection view
 
-🛠 Technical Implementation
-Framework: SwiftUI (VStack, ZStack, LazyVGrid, Sheets).
+**Meal Planner**
+- Schedule Breakfast, Lunch, and Dinner for any date
+- Calendar-based interface for weekly planning
+- Visual overview of your upcoming meals
 
-Persistence: SwiftData (@Model, @Query, @Environment(\.modelContext)) for offline storage.
+**Shopping List**
+- Add ingredients directly from any recipe detail view
+- Interactive checklist — check off items as you shop
+- Delete items individually or clear the full list
 
-Networking: async/await and URLSession with Codable for JSON parsing.
+---
 
-Data Handling: Custom String extensions to clean HTML tags from API instructions.
+## Technical Implementation
 
-Robustness: Handling duplicate API IDs and optional data fields to prevent crashes.
+| Layer | Technology |
+|-------|-----------|
+| UI Framework | SwiftUI (VStack, ZStack, LazyVGrid, Sheets) |
+| Persistence | SwiftData (@Model, @Query, @Environment) |
+| Networking | async/await + URLSession + Codable |
+| API | Spoonacular REST API |
+| Platform | iOS 17+, Xcode 15+ |
 
-🚀 How to Run
-Open PrepPlate.xcodeproj in Xcode 15 or later.
+**Notable engineering decisions:**
+- `async/await` for clean, readable async networking without callback hell
+- SwiftData for lightweight local persistence with zero boilerplate
+- Custom `String` extensions to sanitize HTML from API recipe instructions
+- Duplicate API ID handling and optional field safety to prevent crashes under real-world API conditions
 
-Navigate to Services/NetworkManager.swift.
+---
 
-Ensure the apiKey variable contains a valid Spoonacular API key.
+## Setup
 
-Select a Simulator (e.g., iPhone 16 Pro Max) and press Run (Cmd + R).
+### Prerequisites
+- Xcode 15 or later
+- iOS 17+ Simulator or physical device
+- Spoonacular API key (free tier available at [spoonacular.com](https://spoonacular.com/food-api))
 
-📝 Note on API Limits
+### Run Locally
 
-The app uses the free tier of the Spoonacular API (50 points/day). If the limit is reached, the app includes error handling to prevent crashes, though search results may not appear until the quota resets. Please use another key in that case I have Provided 2 of them in NetworkManager.
+```bash
+# Clone the repo
+git clone https://github.com/athsb009/PrepPlateIOS
+cd PrepPlateIOS
+```
+
+1. Open `PrepPlate.xcodeproj` in Xcode
+2. Navigate to `Services/NetworkManager.swift`
+3. Add your Spoonacular API key to the `apiKey` variable
+4. Select a simulator (iPhone 16 Pro Max recommended)
+5. Press `Cmd + R` to build and run
+
+---
+
+## API Note
+
+PrepPlate uses the Spoonacular free tier (50 points/day). Two backup API keys are provided in `NetworkManager.swift` — if one limit is reached, switch to the next. The app includes full error handling to prevent crashes when the quota resets.
+
+---
+
+## Screenshots
+
+> Add screenshots here
+
+---
+
+## Author
+
+**Atharva Bibave**
+- [LinkedIn](https://linkedin.com/in/atharvabibave)
+- [GitHub](https://github.com/athsb009)
